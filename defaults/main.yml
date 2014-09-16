@@ -1,0 +1,5 @@
+---
+courier_imap_ssl_key: /etc/courier/imapd.key
+courier_imap_ssl_cert: /etc/courier/imapd.crt
+courier_imap_ssl_csr: /etc/courier/imapd.csr
+

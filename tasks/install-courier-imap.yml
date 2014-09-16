@@ -1,0 +1,38 @@
+---
+- name: Install Courier IMAP SSL daemon
+  apt: pkg=courier-imap-ssl state=present
+  register: courierinstalled
+
+- name: Enable checks in all folders
+  lineinfile: state=present
+    dest=/etc/courier/imapd
+    regexp='IMAP_CHECK_ALL_FOLDERS.*'
+    line='IMAP_CHECK_ALL_FOLDERS=1'
+  notify: Restart courier imap
+
+# Does this need to be changed? r/o /etc/
+# - name:o# IMAP_SHAREDINDEXFILE=/etc/courier/shared/index
+# If changing that remove the location on disk since its created empty
+
+- name: Disable emptying trash after 7 days
+  lineinfile: state=present
+    dest=/etc/courier/imapd
+    regexp='IMAP_EMPTYTRASH.*'
+    line='# IMAP_EMPTYTRASH=Trash:7$'
+  notify: Restart courier imap
+
+# Will this disable TLS acccess?
+# - name: Plain imap access on localhost only
+#   lineinfile: state=present
+#     dest=/etc/courier/imapd
+#     regexp='^ADDRESS.*'
+#     line='ADDRSES=127.0.0.1'
+#   notify: Restart courier imap
+
+- name: Require TLS for all hosts
+  lineinfile: state=present
+    dest=/etc/courier/imapd-ssl
+    regexp='^IMAP_TLS_REQUIRED.*'
+    line='IMAP_TLS_REQUIRED=1'
+  notify: Restart courier imap ssl
+
