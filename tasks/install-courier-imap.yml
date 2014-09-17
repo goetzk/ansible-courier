@@ -7,4 +7,5 @@
   template: owner=root group=root
     src=imapd.tmpl
     dest=/etc/courier/imapd
+  notify: Restart courier imap
 

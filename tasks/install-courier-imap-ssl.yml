@@ -6,4 +6,5 @@
   template: owner=root group=root
     src=imapd-ssl.tmpl
     dest=/etc/courier/imapd-ssl
+  notify: Restart courier imap ssl
 
