@@ -9,3 +9,9 @@
     dest=/etc/courier/imapd
   notify: Restart courier imap
 
+- name: Create directory for shared index
+  when: rofs_enable
+  file: owner=daemon group=daemon mode=755
+    state=directory
+    path=/var/cache/courier/shared/
+

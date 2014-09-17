@@ -41,11 +41,6 @@ courier_imap_maildir: 'Maildir'
 # Should we install/enable openssl support?
 courier_imap_ssl_enable: true
 
-# Where should the key/cert go?
-openssl_certs_path: /etc/courier
-openssl_keys_path: /etc/courier
-# Other details of the certificate need to be entered by you
-
 # Imapd configuration, see templates/imapd.tmpl for details of the options
 # Default address for ports which don't specify (0 means any)
 courier_imap_ssl_address: '0'
@@ -78,6 +73,12 @@ courier_authdaemon_loggeropts: ''
 
 To control the creation of the private key any variable provided by
 franklinkim.openssl can be used. See Example Playbook below.
+# Where should the key/cert go?
+openssl_certs_path: /etc/courier
+openssl_keys_path: /etc/courier
+
+# Set true if the filesystem /etc/ resides on is read only
+rofs_enable: false
 ```
 
 Dependencies
