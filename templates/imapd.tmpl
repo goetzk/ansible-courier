@@ -35,7 +35,7 @@ ADDRESS={{ courier_imap_address |default('0') }}
 #  The previous ADDRESS setting is a default for ports that do not have
 #  a specified IP address.
 
-PORT= {{ courier_imap_port |default('143') }}
+PORT={{ courier_imap_port |default('143') }}
 
 ##NAME: AUTHSERVICE:0
 #
