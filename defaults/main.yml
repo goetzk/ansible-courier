@@ -48,3 +48,13 @@ courier_imap_tls_verifypeer: 'NONE'
 # Maildir name
 courier_imap_ssl_maildir: 'Maildir'
 
+# Courier authdaemon
+
+# Authentication backend to use, see templates/authdaemonrc for the full list.
+courier_authdaemon_authmodulelist: 'authpam'
+# Log debug information to syslog, 0 disables, 2 saves passwords in plain text
+courier_authdaemon_debug_login: '0'
+# Extra application options
+courier_authdaemon_defaultoptions: ''
+# Logging options
+courier_authdaemon_loggeropts: ''

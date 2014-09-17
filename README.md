@@ -1,12 +1,12 @@
-Courier
-=======
+Courier Mail Server
+===================
 
-This role manages the install of Courier IMAP and Courier IMAP SSL. The
-templates are based on Debians packaging of version 4.10 but may work with
-other versions as well.
+This role manages the install and configuration of Courier IMAP, Courier IMAP
+SSL and Courier Authentication Daemon. The templates are based on Debians
+packaging of version 4.10 but may work with other versions as well.
 
 Other parts of the Courier Mail Server could be added relatively easily as
-could support for non debian platforms.
+could support for non Debian platforms.
 
 Requirements
 ------------
@@ -66,6 +66,14 @@ courier_imap_tls_verifypeer: 'NONE'
 # Maildir name
 courier_imap_ssl_maildir: 'Maildir'
 
+# Authentication backend to use, see templates/authdaemonrc for the full list.
+courier_authdaemon_authmodulelist: 'authpam'
+# Log debug information to syslog, 0 disables, 2 saves passwords in plain text
+courier_authdaemon_debug_login: '0'
+# Extra application options
+courier_authdaemon_defaultoptions: ''
+# Logging options
+courier_authdaemon_loggeropts: ''
 
 
 To control the creation of the private key any variable provided by
