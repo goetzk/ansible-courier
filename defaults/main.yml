@@ -1,6 +1,6 @@
 ---
 # Should we install/enable openssl support?
-courier_imap_ssl: true
+courier_imap_ssl_enable: true
 
 # Where should the key/cert go?
 openssl_certs_path: /etc/courier

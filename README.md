@@ -14,7 +14,7 @@ Role Variables
 --------------
 
 The only variable provided by this role controls if courier-imap-ssl will be enabled
-  courier_imap_ssl: true
+  courier_imap_ssl_enable: true
 
 To control the creation of the private key any variable provided by
 franklinkim.openssl can be used. Eg:
