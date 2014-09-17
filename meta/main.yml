@@ -97,9 +97,6 @@ galaxy_info:
   categories:
   - networking
   - system
-dependencies: []
-  # List your role dependencies here, one per line. Only
-  # dependencies available via galaxy should be listed here.
-  # Be sure to remove the '[]' above if you add dependencies
-  # to this list.
-  
+dependencies:
+  - role: franklinkim.openssl
+

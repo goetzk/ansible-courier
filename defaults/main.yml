@@ -1,5 +1,10 @@
 ---
-courier_imap_ssl_key: /etc/courier/imapd.key
-courier_imap_ssl_cert: /etc/courier/imapd.crt
-courier_imap_ssl_csr: /etc/courier/imapd.csr
+# Should we install/enable openssl support?
+courier_imap_ssl: true
+
+# Where should the key/cert go?
+openssl_certs_path: /etc/courier
+openssl_keys_path: /etc/courier
+
+# Other details of the certificate need to be entered by you
 

@@ -1,4 +1,6 @@
 ---
-- include: install-courier-imap.yml
-# - include: configure-ssl-certificates.yml
+- include: install-courier-imap.yml tags=system,mail,courier,imap
+
+- include: install-courier-imap-ssl.yml tags=system,mail,courier,imap,ssl
+  when: courier_imap_ssl_enabled
 

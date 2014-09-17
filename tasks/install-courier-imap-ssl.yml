@@ -1,0 +1,11 @@
+---
+- name: Install Courier IMAP SSL daemon
+  apt: pkg=courier-imap-ssl state=present
+
+- name: Require TLS for all hosts
+  lineinfile: state=present
+    dest=/etc/courier/imapd-ssl
+    regexp='^IMAP_TLS_REQUIRED.*'
+    line='IMAP_TLS_REQUIRED=1'
+  notify: Restart courier imap ssl
+
