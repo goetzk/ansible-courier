@@ -274,12 +274,17 @@ IMAP_USELOCKS=1
 # you know what you're doing.  See README.sharedfolders for additional
 # information.
 
-{% if rofs_enable %}
+{% if not filesystems_configuration_ro %}
+IMAP_SHAREDINDEXFILE=/etc/courier/shared/index
+{% endif %}
+{% if filesystems_configuration_ro %}
+{% for filesystem in filesystems_configuration_ro %}
+{% if filesystem.name == '/' %}
 # See this link for more information about shared index
 # http://www.courier-mta.org/imap/README.sharedfolders.html
 IMAP_SHAREDINDEXFILE=/var/cache/courier/shared/index
-{% else %}
-IMAP_SHAREDINDEXFILE=/etc/courier/shared/index
+{% endif %}
+{% endfor %}
 {% endif %}
 
 ##NAME: IMAP_ENHANCEDIDLE:0

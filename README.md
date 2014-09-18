@@ -77,14 +77,17 @@ franklinkim.openssl can be used. See Example Playbook below.
 openssl_certs_path: /etc/courier
 openssl_keys_path: /etc/courier
 
-# Set true if the filesystem /etc/ resides on is read only
-rofs_enable: false
+Checked in imapd configuration template to see if / is listed, if it is an
+alternative path is used for the shared index. This should not need to be set
+manually and comes in from goetzk.filesystems.
+filesystems_configuration_ro: []
 ```
 
 Dependencies
 ------------
 
 franklinkim.openssl provides the SSL certificate generation.
+goetzk.filesystems includes filesystems_configuration_ro which is used in the template configuration. To avoid this dependency it should be possible to set filesystems_configuration_ro.name to ''.
 
 Example Playbook
 ----------------

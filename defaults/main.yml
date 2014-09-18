@@ -59,6 +59,3 @@ openssl_certs_path: /etc/courier
 openssl_keys_path: /etc/courier
 # Other details of the certificate need to be entered by you
 
-# Set true if root filesystem (the one with /etc/) is read only
-rofs_enable: false
-
