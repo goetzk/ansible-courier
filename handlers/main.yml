@@ -5,3 +5,9 @@
 - name: Restart courier imap ssl
   service: name=courier-imap-ssl state=restarted
 
+- name: Restart courier mta
+  service: name=courier-mta state=restarted
+
+- name: Restart courier mta ssl
+  service: name=courier-mta-ssl state=restarted
+

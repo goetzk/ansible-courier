@@ -59,3 +59,108 @@ openssl_certs_path: /etc/courier
 openssl_keys_path: /etc/courier
 # Other details of the certificate need to be entered by you
 
+# Courier MSA (mail submission agent)
+
+# verify return domain addresses
+courier_msa_checkdns: 1
+# Add message-id if it is missing, change to 1 to stop adding it
+courier_msa_noaddmsgid: 0
+# Add date header if it is missing, change to 1 to stop adding it
+courier_msa_noadddate: 0
+# Should we log esmtp dialog from the sender
+courier_msa_esmtp_log_dialog: 0
+# Is authentication required? this applies to servers and humans
+courier_msa_auth_required: 0
+# IP Address to listen on
+courier_msa_address: 0
+# Port to listen on, see esmtpd-msa for details of its usage
+courier_msa_port: 587
+# Location of pid file
+courier_msa_pidfile: '/var/run/courier/esmtpd-msa.pid'
+# Access file (defaults to file used by courier_esmtp)
+courier_msa_accessfile: '${sysconfdir}/smtpaccess'
+# Should the daemon be started - this value also appears in esmtpd configuration.
+courier_msa_esmtpdstart: NO
+
+# Courier ESMTPD SSL
+
+# Set 0 to accept mail with bad return address
+courier_esmtpd_ssl_checkdns: 1
+# Set 1 to disable address list expansion (See rfc821 p24)
+courier_esmtpd_ssl_noexpn: 0
+# Set 1 to disable sender address verification (See rfc821 p24)
+courier_esmtpd_ssl_novrfy: 0
+# Set 0 to disable tarpitting
+courier_esmtpd_ssl_tarpit: 1
+# Add message-id if it is missing, 1 to stop adding it, 0 to start
+courier_esmtpd_ssl_noaddmsgid: 1
+# Add date header if it is missing, 1 to stop adding it, 0 to start
+courier_esmtpd_ssl_noadddate: 1
+# Should we log esmtp dialog from the sender
+courier_esmtpd_ssl_esmtp_log_dialog: 0
+# Is authentication required?
+courier_esmtpd_ssl_auth_required: 0
+# Port to use for SSL connections
+courier_esmtpd_ssl_port: 465
+# Address to listen on
+courier_esmtpd_ssl_address: 0
+# Where should the pidfile go for esmtpd ssl
+courier_esmtpd_ssl_pidfile: /var/run/courier/esmtpd-ssl.pid
+# Should esmtps be started?
+courier_esmtpd_ssl_daemon_start: YES
+# Certificate file Location of certificate, see esmtpd-ssl for specifics
+courier_esmtpd_ssl_tls_certfile: /etc/courier/esmtpd.pem
+# Trusted certificates for certificate authentication
+courier_esmtpd_ssl_tls_trustcerts: /etc/ssl/certs
+# Verify peers doing certificate authentication? none disables it.
+courier_esmtpd_ssl_tls_verifypeer: NONE
+courier_esmtpd_ssl_tls_external: ''
+
+# Courier ESMTPD
+
+# TODO: Should path and shell be added here?
+
+# Set 0 to accept mail with bad return address
+courier_esmtpd_checkdns: 1
+# Set 1 to disable address list expansion (See rfc821 p24)
+courier_esmtpd_noexpn: 0
+# Set 1 to disable sender address verification (See rfc821 p24)
+courier_esmtpd_novrfy: 0
+# Set 0 to disable tarpitting
+courier_esmtpd_tarpit: 1
+# Add message-id if it is missing, 1 to stop adding it, 0 to start
+courier_esmtpd_noaddmsgid: 1
+# Add date header if it is missing, 1 to stop adding it, 0 to start
+courier_esmtpd_noadddate: 1
+# Should we log esmtp dialog from the sender
+courier_esmtpd_esmtp_log_dialog: 0
+# Is authentication required?
+courier_esmtpd_auth_required: 0
+# Is TLS required?
+courier_esmtpd_tls_required: 0
+# Which file has the certificate?
+courier_esmtpd_tls_certfile: /etc/courier/esmtpd.pem
+# Trusted certificates for certificate authentication
+courier_esmtpd_ssl_tls_trustcerts: /etc/ssl/certs
+# Verify peers doing certificate authentication? none disables it.
+courier_esmtpd_ssl_tls_verifypeer: NONE
+# who should this run as
+courier_esmtpd_mailuser: daemon
+courier_esmtpd_mailgroup: daemon
+# address to listen on
+courier_esmtpd_address: 0
+# Port to listen on
+courier_esmtpd_port: smtp
+# blacklists can be set manually using -block. See docs.
+courier_esmtpd_blacklists: ''
+# Access file (defaults to file used by courier_esmtp)
+courier_msa_accessfile: '${sysconfdir}/smtpaccess'
+# Where the pid goes
+courier_esmtpd_pidfile: /var/run/courier/esmtpd.pid
+# TODO: ESMTPAUTH
+courier_esmtpd_
+# TODO: ESMTPAUTH_TLS
+courier_esmtpd_
+# Should we start esmtpd?
+courier_esmtpd_start: YES
+

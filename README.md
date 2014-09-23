@@ -1,9 +1,10 @@
 Courier Mail Server
 ===================
 
-This role manages the install and configuration of Courier IMAP, Courier IMAP
-SSL and Courier Authentication Daemon. The templates are based on Debians
-packaging of version 4.10 but may work with other versions as well.
+This role manages the install and configuration of the courier mail system
+including IMAP, IMAP-SSL, MTA, MTA-SSL, MSA and Courier Authentication Daemon.
+The templates are based on Debians packaging of version 4.10 but may work with
+other versions as well.
 
 Other parts of the Courier Mail Server could be added relatively easily as
 could support for non Debian platforms.

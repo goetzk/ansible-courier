@@ -1,0 +1,19 @@
+---
+- name: Install Courier MTA (ESMTP) daemon
+  apt: pkg=courier-mta state=present
+
+- name: Install Courier MTA configuration
+  template: owner=root group=root
+    src=esmtpd.tmpl
+    dest=/etc/courier/esmtpd
+  notify: Restart courier mta
+
+- name: Install Courier MSA configuration
+  template: owner=root group=root
+    src=esmtpd-msa.tmpl
+    dest=/etc/courier/esmtpd-msa
+  notify: Restart courier mta
+
+- name: Install Courier mail filters
+  apt: pkg=courier-filter-perl state=present
+

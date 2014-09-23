@@ -1,0 +1,12 @@
+- name: Install Courier ESMTP daemon
+  apt: pkg=courier-mta-ssl state=present
+
+- name: Install Courier MTA configuration
+  template: owner=root group=root
+    src=esmtpd-ssl.tmpl
+    dest=/etc/courier/esmtpd-ssl
+  notify: Restart courier mta
+
+- name: Install Courier mail filters
+  apt: pkg=courier-filter-perl state=present
+
