@@ -30,25 +30,25 @@ exec_prefix=/usr
 #  Comment out the following line in order to accept mail with a bad
 #  return address.
 
-BOFHCHECKDNS={{ courier_esmtpd_ssl_checkdns }}
+BOFHCHECKDNS={{ courier_esmtpd_ssl_checkdns |default(courier_esmtpd_checkdns)}}
 
 ##NAME: BOFHNOEXPN:1
 #
 #  Set BOFHNOEXP to 1 to disable EXPN
 
-BOFHNOEXPN={{ courier_esmtpd_ssl_noexpn }}
+BOFHNOEXPN={{ courier_esmtpd_ssl_noexpn |default(courier_esmtpd_noexpn)}}
 
 ##NAME: BOFHNOVRFY:1
 #
 #  Set BOFHNOVERIFY to disable VRFY
 
-BOFHNOVRFY={{ courier_esmtpd_ssl_novrfy }}
+BOFHNOVRFY={{ courier_esmtpd_ssl_novrfy |default(courier_esmtpd_novrfy)}}
 
 ##NAME: TARPIT:1
 #
 #  Set TARPIT to 0 to disable tarpitting
 
-TARPIT={{ courier_esmtpd_ssl_tarpit }}
+TARPIT={{ courier_esmtpd_ssl_tarpit |default(courier_esmtpd_tarpit)}}
 
 ##NAME: NOADDMSGID:0
 #
@@ -69,7 +69,7 @@ NOADDDATE={{ courier_esmtpd_ssl_noadddate }}
 #
 #  If set, log the esmtp dialog.
 
-ESMTP_LOG_DIALOG={{ courier_esmtpd_ssl_esmtp_log_dialog }}
+ESMTP_LOG_DIALOG={{ courier_esmtpd_ssl_esmtp_log_dialog |default(courier_esmtpd_esmtp_log_dialog)}}
 
 ##NAME: AUTH_REQUIRED:0
 #

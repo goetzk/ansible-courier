@@ -63,7 +63,7 @@ BLACKLISTS=""
 #
 #  Address to listen on, can be set to a single IP address.
 
-ADDRESS={{ courier_msa_address }}
+ADDRESS={{ courier_msa_address |default(courier_esmtpd_address) }}
 
 ##NAME: PORT:1
 #
@@ -92,7 +92,7 @@ PIDFILE={{ courier_msa_pidfile }}
 #  To do that, create it yourself, and use makesmtpaccess-msa instead of
 #  makesmtpaccess.
 
-ACCESSFILE={{ courier_msa_accessfile }}
+ACCESSFILE={{ courier_msa_accessfile |default(courier_esmtpd_accessfile)}}
 
 ##NAME: ESMTPDSTART:0
 #
@@ -114,7 +114,7 @@ ACCESSFILE={{ courier_msa_accessfile }}
 # with enough platforms so that people get annoyed with having to flip it to
 # YES every time.
 
-ESMTPDSTART={{ courier_msa_esmtpdstart }}
+ESMTPDSTART={{ courier_msa_esmtpd_start }}
 
 ##NAME: CUSTOM:1
 #

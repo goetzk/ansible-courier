@@ -37,25 +37,25 @@ ULIMIT=32768
 #  Comment out the following line in order to accept mail with a bad
 #  return address.
 
-BOFHCHECKDNS=1
+BOFHCHECKDNS={{ courier_esmtpd_checkdns }}
 
 ##NAME: BOFHNOEXPN:1
 #
 #  Set BOFHNOEXP to 1 to disable EXPN
 
-BOFHNOEXPN=1
+BOFHNOEXPN={{ courier_esmtpd_noexpn }}
 
 ##NAME: BOFHNOVRFY:1
 #
 #  Set BOFHNOVERIFY to disable VRFY
 
-BOFHNOVRFY=1
+BOFHNOVRFY={{ courier_esmtpd_novrfy }}
 
 ##NAME: TARPIT:1
 #
 #  Set TARPIT to 0 to disable tarpitting
 
-TARPIT=1
+TARPIT={{ courier_esmtpd_tarpit }}
 
 ##NAME: NOADDMSGID:0
 #
@@ -65,18 +65,18 @@ TARPIT=1
 #  IP address ranges, you can override them in couriertcpd access file,
 #  see couriertcpd(8).
 
-NOADDMSGID=1
+NOADDMSGID={{ courier_esmtpd_noaddmsgid }}
 
 ##NAME: NOADDDATE:0
 #
 
-NOADDDATE=1
+NOADDDATE={{ courier_esmtpd_noadddate }}
 
 ##NAME: ESMTP_LOG_DIALOG:0
 #
 #  If set, log the esmtp dialog.
 
-ESMTP_LOG_DIALOG=0
+ESMTP_LOG_DIALOG={{ courier_esmtpd_esmtp_log_dialog }}
 
 ##NAME: AUTH_REQUIRED:0
 #
@@ -89,7 +89,7 @@ ESMTP_LOG_DIALOG=0
 # authenticate with, this setting should not be enabled on mail servers
 # used to receive incoming mail from the Internet.
 
-AUTH_REQUIRED=0
+AUTH_REQUIRED={{ courier_esmtpd_auth_required }}
 
 #########################################################################
 #
@@ -257,7 +257,7 @@ TLS_CERTFILE={{ courier_esmtpd_tls_certfile }}
 #
 # TLS_TRUSTCERTS=
 
-TLS_TRUSTCERTS=/etc/ssl/certs
+TLS_TRUSTCERTS={{ courier_esmtpd_tls_trustcerts }}
 
 ##NAME: TLS_VERIFYPEER:0
 #
