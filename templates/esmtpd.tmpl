@@ -76,7 +76,7 @@ NOADDDATE={{ courier_esmtpd_noadddate }}
 #
 #  If set, log the esmtp dialog.
 
-ESMTP_LOG_DIALOG={{ courier_esmtpd_esmtp_log_dialog }}
+ESMTP_LOG_DIALOG={{ courier_esmtpd_log_dialog }}
 
 ##NAME: AUTH_REQUIRED:0
 #
@@ -336,7 +336,7 @@ PORT={{ courier_esmtpd_port }}
 #
 # BLACKLISTS='-block=zen.spamhaus.org,BLOCK2 -block=cbl.abuseat.org,BLOCK2'
 
-BLACKLISTS="{{ courier_esmtpd_blacklists }}
+BLACKLISTS="{{ courier_esmtpd_blacklists }}"
 
 ##NAME: DROP:0
 #
@@ -407,7 +407,7 @@ TCPDOPTS="-stderrlogger=/usr/sbin/courierlogger"
 # information.
 #
 
-ESMTPAUTH=""
+ESMTPAUTH={{ courier_esmtpd_auth }}
 
 ##NAME: ESMTPAUTH_WEBADMIN:5
 #
@@ -427,7 +427,7 @@ ESMTPAUTH_WEBADMIN="LOGIN CRAM-MD5 CRAM-SHA1 CRAM-SHA256"
 #
 # ESMTPAUTH_TLS_WEBADMIN is used by the webadmin module
 
-ESMTPAUTH_TLS=""
+ESMTPAUTH_TLS={{ courier_esmtpd_auth_tls }}
 
 ##NAME: ESMTPAUTH_TLS_WEBADMIN:5
 

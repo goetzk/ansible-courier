@@ -5,19 +5,11 @@
 openssl_certs_path: /etc/courier
 openssl_keys_path: /etc/courier
 
-# Include files with per service setup.
-- include: imapd.yml
-- include: imapd-ssl.yml
-- include: authdaemon.yml
-
 # These will be split out once properly managed.
 
 # Courier ESMTPD
 
 # TODO: Should path and shell be added here?
-
-# There is a version of the next group of options for the ssl and msa services
-# too. Only those that are identical accross all systems are here.
 
 # Set 0 to accept mail with bad return address.
 courier_esmtpd_checkdns: 1
@@ -28,7 +20,7 @@ courier_esmtpd_novrfy: 0
 # Set 0 to disable tarpitting
 courier_esmtpd_tarpit: 1
 # Should we log esmtp dialog from the sender
-courier_esmtpd_esmtp_log_dialog: 0
+courier_esmtpd_log_dialog: 0
 # Is authentication required?
 courier_esmtpd_auth_required: 0
 
@@ -57,15 +49,21 @@ courier_esmtpd_blacklists: ''
 courier_esmtpd_accessfile: '${sysconfdir}/smtpaccess'
 # Where the pid goes
 courier_esmtpd_pidfile: /var/run/courier/esmtpd.pid
-# TODO: ESMTPAUTH
-courier_esmtpd_
-# TODO: ESMTPAUTH_TLS
-courier_esmtpd_
+# Set supported authentication mechanisms for authenticated relaying, this does
+# not require tls
+courier_esmtpd_auth: ''
+# Set supported authentication mechanisms for authenticated relaying as above
+# but this entry does require tls
+courier_esmtpd_auth_tls: ''
 # Should we start esmtpd?
 courier_esmtpd_start: YES
 
 
 # Courier ESMTPD SSL
+
+# Should ESMTPD SSL be enabled?
+# TODO: make this false by default
+courier_esmtpd_ssl_enable: true
 
 # Add message-id if it is missing, 1 to stop adding it, 0 to start
 courier_esmtpd_ssl_noaddmsgid: 1
@@ -81,9 +79,9 @@ courier_esmtpd_ssl_pidfile: /var/run/courier/esmtpd-ssl.pid
 courier_esmtpd_ssl_daemon_start: YES
 # Certificate file Location of certificate, see esmtpd-ssl for specifics. These
 # two are shared accross esmtpd{,-ssl}
-courier_esmtpd_ssl_tls_certfile: /etc/courier/esmtpd.pem
+courier_esmtpd_tls_certfile: /etc/courier/esmtpd.pem
 # Trusted certificates for certificate authentication
-courier_esmtpd_ssl_tls_trustcerts: /etc/ssl/certs
+courier_esmtpd_tls_trustcerts: /etc/ssl/certs
 # Verify peers doing certificate authentication? none disables it.
 courier_esmtpd_ssl_tls_external: ''
 

@@ -4,3 +4,8 @@
 - include: install-courier-imap-ssl.yml tags=system,mail,courier,imap,ssl
   when: courier_imap_ssl_enable
 
+- include: install-courier-esmtpd.yml tags=system,mail,courier,smtp
+
+- include: install-courier-esmtpd-ssl.yml tags=system,mail,courier,smtp,ssl
+  when: courier_esmtpd_ssl_enable
+

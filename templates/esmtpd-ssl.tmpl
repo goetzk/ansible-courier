@@ -69,7 +69,7 @@ NOADDDATE={{ courier_esmtpd_ssl_noadddate }}
 #
 #  If set, log the esmtp dialog.
 
-ESMTP_LOG_DIALOG={{ courier_esmtpd_ssl_esmtp_log_dialog |default(courier_esmtpd_esmtp_log_dialog)}}
+ESMTP_LOG_DIALOG={{ courier_esmtpd_ssl_esmtp_log_dialog |default(courier_esmtpd_log_dialog)}}
 
 ##NAME: AUTH_REQUIRED:0
 #
@@ -77,7 +77,7 @@ ESMTP_LOG_DIALOG={{ courier_esmtpd_ssl_esmtp_log_dialog |default(courier_esmtpd_
 # authentication.  You can override AUTH_REQUIRED on a per-IP address basis
 # using smtpaccess.  See makesmtpaccess(8).
 
-AUTH_REQUIRED={{ courier_esmtpd_ssl_auth_required }}
+AUTH_REQUIRED={{ courier_esmtpd_ssl_auth_required |default(courier_esmtpd_auth_required) }}
 
 ##NAME: SSLPORT:0
 #
@@ -110,7 +110,7 @@ SSLADDRESS={{ courier_esmtpd_ssl_address }}
 #
 #
 
-SSLPIDFILE={{ courier_esmtpd_ssl_daemon_start }}
+SSLPIDFILE={{ courier_esmtpd_ssl_pidfile }}
 
 ##NAME: ESMTPDSSLSTART:0
 #
@@ -266,7 +266,7 @@ TLS_CERTS=X509
 #
 # This is an experimental feature.
 
-TLS_CERTFILE={{ courier_esmtpd_ssl_tls_certfile }}
+TLS_CERTFILE={{ courier_esmtpd_ssl_tls_certfile |default(courier_esmtpd_tls_certfile) }}
 
 ##NAME: TLS_TRUSTCERTS:0
 #
@@ -279,7 +279,7 @@ TLS_CERTFILE={{ courier_esmtpd_ssl_tls_certfile }}
 # the -domain option) and by SSL/TLS servers (TLS_VERIFYPEER is set
 # to PEER or REQUIREPEER).
 
-TLS_TRUSTCERTS={{ courier_esmtpd_ssl_tls_trustcerts }}
+TLS_TRUSTCERTS={{ courier_esmtpd_ssl_tls_trustcerts |default(courier_esmtpd_tls_trustcerts) }}
 
 ##NAME: TLS_VERIFYPEER:0
 #
@@ -293,7 +293,7 @@ TLS_TRUSTCERTS={{ courier_esmtpd_ssl_tls_trustcerts }}
 # REQUIREPEER - require a client certificate, fail if one's not presented
 #
 #
-TLS_VERIFYPEER={{ courier_esmtpd_ssl_tls_verifypeer }}
+TLS_VERIFYPEER={{ courier_esmtpd_tls_verifypeer }}
 
 ##NAME: TLS_EXTERNAL:0
 #

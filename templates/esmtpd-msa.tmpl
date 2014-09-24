@@ -23,7 +23,7 @@
 #
 #  ESMTP MSA is likely to want to verify return domain addresses.
 
-BOFHCHECKDNS={{ courier_msa_checkdns }}
+BOFHCHECKDNS={{ courier_msa_checkdns |default(courier_esmtpd_checkdns) }}
 
 ##NAME: NOADDMSGID:0
 #
@@ -42,7 +42,7 @@ NOADDDATE={{ courier_msa_noadddate }}
 #
 #  If set, log the esmtp dialog.
 
-ESMTP_LOG_DIALOG={{ courier_msa_esmtp_log_dialog }}
+ESMTP_LOG_DIALOG={{ courier_msa_log_dialog |default(courier_esmtpd_log_dialog) }}
 
 ##NAME: AUTH_REQUIRED:0
 #
@@ -50,7 +50,7 @@ ESMTP_LOG_DIALOG={{ courier_msa_esmtp_log_dialog }}
 # authentication.  You can override AUTH_REQUIRED on a per-IP address basis
 # using smtpaccess.  See makesmtpaccess(8).
 
-AUTH_REQUIRED={{ courier_msa_auth_required }}
+AUTH_REQUIRED={{ courier_msa_auth_required |default(courier_esmtpd_auth_required) }}
 
 ##NAME: BLACKLISTS: 0
 #
@@ -114,7 +114,7 @@ ACCESSFILE={{ courier_msa_accessfile |default(courier_esmtpd_accessfile)}}
 # with enough platforms so that people get annoyed with having to flip it to
 # YES every time.
 
-ESMTPDSTART={{ courier_msa_esmtpd_start }}
+ESMTPDSTART={{ courier_msa_start |default(courier_esmtpd_start) }}
 
 ##NAME: CUSTOM:1
 #
