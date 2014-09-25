@@ -93,7 +93,8 @@ goetzk.filesystems includes filesystems_configuration_ro which is used in the te
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+This role installs courier imap and courier imap ssl with an ssl certificate.
+esmtpd and esmtpd ssl are disabled and imap is enabled (by default).
 
     - hosts: servers
       vars:
@@ -102,7 +103,7 @@ Including an example of how to use your role (for instance, with variables passe
         - openssl_self_signed: 
           - { name: 'example.com', country: 'AU', state: 'Your state', city: 'Some city', email: 'contact@example.com', days: 1095 }
       roles:
-        - { role: goetzk.courier , courier_imap_ssl: true }
+        - { role: goetzk.courier, courier_esmtpd_enable: false, courier_esmtpd_ssl_enable: false }
 
 License
 -------
