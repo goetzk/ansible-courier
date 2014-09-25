@@ -9,7 +9,7 @@ openssl_keys_path: /etc/courier
 # Courier authdaemon
 
 # Should we install imap?
-courier_imap_enable: true
+courier_imap_enable: false
 
 # Authentication backend to use, see templates/authdaemonrc for the full list.
 courier_authdaemon_authmodulelist: 'authpam'
@@ -46,7 +46,7 @@ courier_imap_maildir: 'Maildir'
 
 
 # Should we install/enable openssl support?
-courier_imap_ssl_enable: true
+courier_imap_ssl_enable: false
 
 # Imapd configuration, see templates/imapd.tmpl for details of the options
 # Default address for ports which don't specify (0 means any)
@@ -72,7 +72,7 @@ courier_imap_ssl_maildir: 'Maildir'
 # Courier ESMTPD
 
 # Should we install esmtpd?
-courier_esmtpd_enable: true
+courier_esmtpd_enable: false
 
 # TODO: Should path and shell be added here?
 
@@ -128,7 +128,7 @@ courier_esmtpd_start: YES
 
 # Should ESMTPD SSL be enabled?
 # TODO: make this false by default
-courier_esmtpd_ssl_enable: true
+courier_esmtpd_ssl_enable: false
 
 # Add message-id if it is missing, 1 to stop adding it, 0 to start
 courier_esmtpd_ssl_noaddmsgid: 1

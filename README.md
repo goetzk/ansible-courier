@@ -94,7 +94,7 @@ Example Playbook
 ----------------
 
 This role installs courier imap and courier imap ssl with an ssl certificate.
-esmtpd and esmtpd ssl are disabled and imap is enabled (by default).
+By default all services are disabled and will need to be enabled specially.
 
     - hosts: servers
       vars:
@@ -103,7 +103,7 @@ esmtpd and esmtpd ssl are disabled and imap is enabled (by default).
         - openssl_self_signed: 
           - { name: 'example.com', country: 'AU', state: 'Your state', city: 'Some city', email: 'contact@example.com', days: 1095 }
       roles:
-        - { role: goetzk.courier, courier_esmtpd_enable: false, courier_esmtpd_ssl_enable: false }
+        - { role: goetzk.courier, courier_esmtpd_enable: true, courier_imap_enable: true }
 
 License
 -------
