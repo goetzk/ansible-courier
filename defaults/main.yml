@@ -8,6 +8,9 @@ openssl_keys_path: /etc/courier
 
 # Courier authdaemon
 
+# Should we install imap?
+courier_imap_enable: true
+
 # Authentication backend to use, see templates/authdaemonrc for the full list.
 courier_authdaemon_authmodulelist: 'authpam'
 # Log debug information to syslog, 0 disables, 2 saves passwords in plain text
@@ -67,6 +70,9 @@ courier_imap_ssl_maildir: 'Maildir'
 
 
 # Courier ESMTPD
+
+# Should we install esmtpd?
+courier_esmtpd_enable: true
 
 # TODO: Should path and shell be added here?
 
