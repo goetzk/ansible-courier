@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Karl Goetz
-  description: Role to handle configuration of Courier (IMAP)
+  description: Role to handle configuration of Courier services (IMAP, SSL, MTA, MSA, Authentication Daemon)
   # company: your company (optional)
   license: GPLv2
   min_ansible_version: 1.3
